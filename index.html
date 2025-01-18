@@ -1,72 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>E-Marketing Quiz</title>
-<style>
-body {
-font-family: Arial, sans-serif;
-margin: 20px;
-line-height: 1.6;
-}
-h1, h2 {
-color: #2c3e50;
-}
-.question {
-margin-bottom: 20px;
-}
-.question h3 {
-margin-bottom: 10px;
-}
-.submit-btn {
-background-color: #3498db;
-color: white;
-border: none;
-padding: 10px 20px;
-cursor: pointer;
-border-radius: 5px;
-}
-.submit-btn:hover {
-background-color: #2980b9;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Marketing Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .submit-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        .correct-answer {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect-answer {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<h1>E-Marketing Quiz</h1>
-<form id="quizForm">
-<div class="question">
-<h3>Question 1: Which of the following is the first step in developing an e-marketing plan?</h3>
-<label><input type="radio" name="q1" value="0"> Setting objectives</label><br>
-<label><input type="radio" name="q1" value="1"> Budget estimation</label><br>
-<label><input type="radio" name="q1" value="2"> Situation analysis</label><br>
-<label><input type="radio" name="q1" value="3"> Implementation plan</label><br>
-</div>
-<div class="question">
-<h3>Question 2: What does the "S" in SWOT analysis stand for?</h3>
-<label><input type="radio" name="q2" value="0"> Strategy</label><br>
-<label><input type="radio" name="q2" value="1"> Strengths</label><br>
-<label><input type="radio" name="q2" value="2"> Segmentation</label><br>
-<label><input type="radio" name="q2" value="3"> Sustainability</label><br>
-</div>
-<!-- Add more questions here as needed -->
-<button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
-</form>
-<div id="result" style="margin-top: 20px; font-weight: bold;"></div>
-<script>
-function checkAnswers() {
-const correctAnswers = [2, 1]; // Correct answers
-let score = 0;
-const form = document.getElementById('quizForm');
-const resultDiv = document.getElementById('result');
-correctAnswers.forEach((answer, idx) => {
-const userAnswer = form[`q${idx + 1}`]?.value;
-if (parseInt(userAnswer) === answer) {
-score += 1;
-}
-});
-resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}`;
-}
-</script>
+    <h1>E-Marketing Quiz</h1>
+    <form id="quizForm">
+        <!-- Questions Start -->
+        <div class="question">
+            <h3>Question 1: Which of the following is the first step in developing an e-marketing plan?</h3>
+            <label><input type="radio" name="q1" value="0"> Setting objectives</label><br>
+            <label><input type="radio" name="q1" value="1"> Budget estimation</label><br>
+            <label><input type="radio" name="q1" value="2"> Situation analysis</label><br>
+            <label><input type="radio" name="q1" value="3"> Implementation plan</label><br>
+        </div>
+        <div class="question">
+            <h3>Question 2: What does the "S" in SWOT analysis stand for?</h3>
+            <label><input type="radio" name="q2" value="0"> Strategy</label><br>
+            <label><input type="radio" name="q2" value="1"> Strengths</label><br>
+            <label><input type="radio" name="q2" value="2"> Segmentation</label><br>
+            <label><input type="radio" name="q2" value="3"> Sustainability</label><br>
+        </div>
+        <!-- Add more questions as needed -->
+        <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+    </form>
+    <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+    <div id="answers" style="margin-top: 20px;"></div>
+    <script>
+        function checkAnswers() {
+            const correctAnswers = [2, 1]; // Correct answer indices for each question
+            const answerKeys = [
+                ["Setting objectives", "Budget estimation", "Situation analysis", "Implementation plan"],
+                ["Strategy", "Strengths", "Segmentation", "Sustainability"]
+            ]; // Full list of options for each question
+
+            let score = 0;
+            const form = document.getElementById('quizForm');
+            const resultDiv = document.getElementById('result');
+            const answersDiv = document.getElementById('answers');
+            answersDiv.innerHTML = ""; // Clear previous answers
+
+            correctAnswers.forEach((answer, idx) => {
+                const userAnswer = form[`q${idx + 1}`]?.value;
+                if (parseInt(userAnswer) === answer) {
+                    score += 1;
+                } else {
+                    const correctOption = answerKeys[idx][answer];
+                    answersDiv.innerHTML += `<p class="incorrect-answer">Question ${idx + 1}: Correct answer is "${correctOption}"</p>`;
+                }
+            });
+
+            resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}`;
+        }
+    </script>
 </body>
 </html>
