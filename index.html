@@ -13,6 +13,22 @@
         h1, h2 {
             color: #2c3e50;
         }
+        .center {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
         .question {
             margin-bottom: 20px;
         }
@@ -41,35 +57,53 @@
     </style>
 </head>
 <body>
-    <h1>E-Marketing Quiz</h1>
-    <form id="quizForm">
-        <!-- Questions Start -->
-        <div class="question">
-            <h3>Question 1: Which of the following is the first step in developing an e-marketing plan?</h3>
-            <label><input type="radio" name="q1" value="0"> Setting objectives</label><br>
-            <label><input type="radio" name="q1" value="1"> Budget estimation</label><br>
-            <label><input type="radio" name="q1" value="2"> Situation analysis</label><br>
-            <label><input type="radio" name="q1" value="3"> Implementation plan</label><br>
-        </div>
-        <div class="question">
-            <h3>Question 2: What does the "S" in SWOT analysis stand for?</h3>
-            <label><input type="radio" name="q2" value="0"> Strategy</label><br>
-            <label><input type="radio" name="q2" value="1"> Strengths</label><br>
-            <label><input type="radio" name="q2" value="2"> Segmentation</label><br>
-            <label><input type="radio" name="q2" value="3"> Sustainability</label><br>
-        </div>
-        <!-- Add more questions as needed -->
-        <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
-    </form>
-    <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
-    <div id="answers" style="margin-top: 20px;"></div>
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="center">
+        <h1>Welcome to the E-Marketing Quiz!</h1>
+        <p>Test your knowledge of e-marketing concepts and strategies.</p>
+        <button class="btn" onclick="startQuiz()">Start Quiz</button>
+    </div>
+
+    <!-- Quiz Form -->
+    <div id="quizScreen" style="display: none;">
+        <h1>E-Marketing Quiz</h1>
+        <form id="quizForm">
+            <!-- Questions Start -->
+            <div class="question">
+                <h3>Question 1: Which of the following is the first step in developing an e-marketing plan?</h3>
+                <label><input type="radio" name="q1" value="0"> Setting objectives</label><br>
+                <label><input type="radio" name="q1" value="1"> Budget estimation</label><br>
+                <label><input type="radio" name="q1" value="2"> Situation analysis</label><br>
+                <label><input type="radio" name="q1" value="3"> Implementation plan</label><br>
+            </div>
+            <div class="question">
+                <h3>Question 2: What does the "S" in SWOT analysis stand for?</h3>
+                <label><input type="radio" name="q2" value="0"> Strategy</label><br>
+                <label><input type="radio" name="q2" value="1"> Strengths</label><br>
+                <label><input type="radio" name="q2" value="2"> Segmentation</label><br>
+                <label><input type="radio" name="q2" value="3"> Sustainability</label><br>
+            </div>
+            <!-- Add more questions here -->
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+        </form>
+        <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+        <div id="answers" style="margin-top: 20px;"></div>
+    </div>
+
     <script>
+        // Function to show the quiz and hide the welcome screen
+        function startQuiz() {
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('quizScreen').style.display = 'block';
+        }
+
         function checkAnswers() {
             const correctAnswers = [2, 1]; // Correct answer indices for each question
             const answerKeys = [
                 ["Setting objectives", "Budget estimation", "Situation analysis", "Implementation plan"],
                 ["Strategy", "Strengths", "Segmentation", "Sustainability"]
-            ]; // Full list of options for each question
+                // Add more answers here for other questions
+            ];
 
             let score = 0;
             const form = document.getElementById('quizForm');
