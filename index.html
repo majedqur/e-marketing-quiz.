@@ -353,29 +353,3 @@
     </script>
 </body>
 </html>
-function checkAnswers() {
-            const form = document.getElementById('quizForm');
-            const resultContainer = document.getElementById('resultContainer');
-            let score = 25;
-            let resultHTML = "<h2>النتائج:</h2>";
-
-            for (const [question, correctAnswer] of Object.entries(correctAnswers)) {
-                const userAnswer = form[question].value;
-                if (userAnswer) {
-                    if (userAnswer === correctAnswer) {
-                        resultHTML += `<p class='correct'>سؤال ${question.slice(1)}: إجابة صحيحة!</p>`;
-                    } else {
-                        resultHTML += `<p class='incorrect'>سؤال ${question.slice(1)}: إجابة خاطئة! الإجابة الصحيحة هي: ${correctAnswer}</p>`;
-                        score -= 8.33; // خصم درجات بناءً على عدد الأخطاء
-                    }
-                } else {
-                    resultHTML += `<p class='incorrect'>سؤال ${question.slice(1)}: لم تقم بالإجابة. الإجابة الصحيحة هي: ${correctAnswer}</p>`;
-                    score -= 8.33;
-                }
-            }
-
-            resultHTML += `<p>النتيجة النهائية: ${Math.max(0, score.toFixed(2))} من 25</p>`;
-            resultContainer.innerHTML = resultHTML;
-        }
-    </script>
-</body>
