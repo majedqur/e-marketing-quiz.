@@ -255,101 +255,57 @@
                 <label><input type="radio" name="q25" value="1"> A marketing budget plan</label>
                 <label><input type="radio" name="q25" value="2"> A competitor analysis tool</label>
                 <label><input type="radio" name="q25" value="3"> A list of product features</label>
-            </div>
-            <!-- Questions End -->
-            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
-        </form>
-        <div id="result" class="result"></div>
-        <div id="answers" class="answers"></div>
-    </div>
-    <script>
-        function checkAnswers() {
-            const correctAnswers = [
-                2, 1, 0, 2, 1, 1, 2, 1, 1, 1, 1, 2
-            ];
- const answerKeys = [
-                ["Setting objectives", "Budget estimation", "Situation analysis", "Implementation plan"],
-                ["Strategy", "Strengths", "Segmentation", "Sustainability"],
-                ["Improve organic visibility", "Increase paid ads revenue", "Enhance offline customer experience", "Reduce website loading time"],
-                ["Retargeting ads", "Contextual ads", "Radio ads", "Display ads"],
-                ["Provide detailed strategies", "Quickly outline main ideas", "Convince investors", "Launch a product"],
-                ["Awareness", "Retention", "Conversion", "Exposure"],
-                ["Paid media", "Owned media", "Earned media", "Display media"],
-                ["It’s always free", "Faster and more cost-effective than traditional methods", "Replaces social media campaigns", "Requires no customer segmentation"],
-                ["Reduce email costs", "Test different versions to improve performance", "Train customer service staff", "Automate campaigns"],
-                ["A can of soda", "A smartphone", "A pack of gum", "A pen"],
-                ["Announce a new product", "Introduce new customers to the service", "Promote discounts", "Conduct a survey"],
-                ["Enhance loyalty", "Build brand image", "Increase bounce rate", "Generate leads"]
-            ];
+           </div>
+<!-- Additional questions go here -->
 
-            let score = 0;
-            const form = document.getElementById('quizForm');
-            const resultDiv = document.getElementById('result');
-            const answersDiv = document.getElementById('answers');
-            answersDiv.innerHTML = ""; // Clear previous answers
+<button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+</form>
+<div id="result" class="result"></div>
+<div id="answers" class="answers"></div>
+</div>
+<script>
+function checkAnswers() {
+    const correctAnswers = [
+        2, 1, 0, 2, 1, 1, 2, 1, 1, 1, 1, 2
+    ];
+    const answerKeys = [
+        ["Setting objectives", "Budget estimation", "Situation analysis", "Implementation plan"],
+        ["Strategy", "Strengths", "Segmentation", "Sustainability"],
+        ["Improve organic visibility", "Increase paid ads revenue", "Enhance offline customer experience", "Reduce website loading time"],
+        ["Retargeting ads", "Contextual ads", "Radio ads", "Display ads"],
+        ["Provide detailed strategies", "Quickly outline main ideas", "Convince investors", "Launch a product"],
+        ["Awareness", "Retention", "Conversion", "Exposure"],
+        ["Paid media", "Owned media", "Earned media", "Display media"],
+        ["It’s always free", "Faster and more cost-effective than traditional methods", "Replaces social media campaigns", "Requires no customer segmentation"],
+        ["Reduce email costs", "Test different versions to improve performance", "Train customer service staff", "Automate campaigns"],
+        ["A can of soda", "A smartphone", "A pack of gum", "A pen"],
+        ["Announce a new product", "Introduce new customers to the service", "Promote discounts", "Conduct a survey"],
+        ["Enhance loyalty", "Build brand image", "Increase bounce rate", "Generate leads"]
+    ];
 
-            correctAnswers.forEach((correct, index) => {
-                const question = `q${index + 1}`;
-                const userAnswer = form[question]?.value;
+    let score = 0;
+    const form = document.getElementById('quizForm');
+    const resultDiv = document.getElementById('result');
+    const answersDiv = document.getElementById('answers');
+    answersDiv.innerHTML = ""; // Clear previous answers
 
-                if (parseInt(userAnswer) === correct) {
-                    score++;
-                } else {
-                    const correctOption = answerKeys[index][correct];
-                    answersDiv.innerHTML += `<p class='incorrect-answer'>Question ${index + 1}: Correct answer is "${correctOption}"</p>`;
-                }
-            });
+    correctAnswers.forEach((correct, index) => {
+        const question = `q${index + 1}`;
+        const userAnswer = form[question]?.value;
 
-            resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}`;
-        </div>
-            <!-- Questions End -->
-            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
-        </form>
-        <div id="result" class="result"></div>
-        <div id="answers" class="answers"></div>
-    </div>
-    <script>
-        function checkAnswers() {
-            const correctAnswers = [
-                2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
-                2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 3, 1, 0
-            ];
-            const answerKeys = [
-                ["Paid advertisements on websites", "Social media posts by the company", "Customer reviews and shares", "Sponsored content"],
-                ["Avoid creating email lists", "Target specific groups effectively", "Increase email costs", "Eliminate A/B testing"],
-                ["Conversion Time Rate", "Click-Through Rate", "Content Tracking Results", "Customer Transaction Ratio"],
-                ["Customer purchase", "Awareness", "Evangelism", "Retention"],
-                ["Social Engagement Optimization", "Search Engine Optimization", "Service Experience Organization", "Strategic Engagement Online"],
-                ["Google Analytics", "Giga Alert", "AdSense", "Canva"],
-                ["Promote a new product", "Confirm an action like a purchase", "Conduct surveys", "Increase CTR"],
-                ["Contextual ad", "Retargeting ad", "Sponsorship ad", "Mobile ad"],
-                ["Building customer trust", "Personalizing offers", "Easy-to-use website design", "Offering rewards to evangelists"],
-                ["Requires no internet", "Simplifies the customer journey", "Works only with smartphones", "Eliminates the need for SEO"],
-                ["Political", "Economic", "Social", "Emotional"],
-                ["Confirm a transaction", "Build loyalty by showing appreciation", "Promote a discount", "Announce new features"],
-                ["A fictional representation of a customer", "A marketing budget plan", "A competitor analysis tool", "A list of product features"]
-            ];
-
-            let score = 0;
-            const form = document.getElementById('quizForm');
-            const resultDiv = document.getElementById('result');
-            const answersDiv = document.getElementById('answers');
-            answersDiv.innerHTML = ""; // Clear previous answers
-
-            correctAnswers.forEach((correct, index) => {
-                const question = `q${index + 13}`;
-                const userAnswer = form[question]?.value;
-
-                if (parseInt(userAnswer) === correct) {
-                    score++;
-                } else {
-                    const correctOption = answerKeys[index][correct];
-                    answersDiv.innerHTML += `<p class='incorrect-answer'>Question ${index + 13}: Correct answer is "${correctOption}"</p>`;
-                }
-            });
-
-            resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}`;
+        if (userAnswer === undefined) {
+            answersDiv.innerHTML += `<p class='incorrect-answer'>Question ${index + 1}: No answer selected</p>`;
+        } else if (parseInt(userAnswer) === correct) {
+            score++;
+        } else {
+            const correctOption = answerKeys[index][correct];
+            answersDiv.innerHTML += `<p class='incorrect-answer'>Question ${index + 1}: Correct answer is "${correctOption}"</p>`;
         }
-    </script>
+    });
+
+    resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}`;
+}
+</script>
 </body>
 </html>
+
