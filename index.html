@@ -256,7 +256,12 @@
                 <label><input type="radio" name="q25" value="2"> A competitor analysis tool</label>
                 <label><input type="radio" name="q25" value="3"> A list of product features</label>
            </div>
-<script>
+           <!-- Submit Button -->
+    <div style="text-align: center; margin-top: 20px;">
+        <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
+    </div>
+</form> 
+            <script>
 function checkAnswers() {
     const correctAnswers = [
         2, 1, 0, 2, 1, 1, 2, 1, 1, 1, 1, 2
