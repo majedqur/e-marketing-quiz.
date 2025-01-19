@@ -256,13 +256,6 @@
                 <label><input type="radio" name="q25" value="2"> A competitor analysis tool</label>
                 <label><input type="radio" name="q25" value="3"> A list of product features</label>
            </div>
-<!-- Additional questions go here -->
-
-<button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
-</form>
-<div id="result" class="result"></div>
-<div id="answers" class="answers"></div>
-</div>
 <script>
 function checkAnswers() {
     const correctAnswers = [
@@ -284,7 +277,7 @@ function checkAnswers() {
     ];
 
     let score = 0;
-    const totalQuestions = 25; // Total score out of 25
+    const totalQuestions = correctAnswers.length;
     const form = document.getElementById('quizForm');
     const resultDiv = document.getElementById('result');
     const answersDiv = document.getElementById('answers');
@@ -304,10 +297,7 @@ function checkAnswers() {
         }
     });
 
-    const finalScore = (score / correctAnswers.length) * totalQuestions;
-    resultDiv.textContent = `You scored ${finalScore.toFixed(1)} out of ${totalQuestions}`;
+    resultDiv.textContent = `You scored ${score} out of ${totalQuestions}`;
 }
 </script>
-</body>
-</html>
 
