@@ -284,6 +284,7 @@ function checkAnswers() {
     ];
 
     let score = 0;
+    const totalQuestions = 25; // Total score out of 25
     const form = document.getElementById('quizForm');
     const resultDiv = document.getElementById('result');
     const answersDiv = document.getElementById('answers');
@@ -303,7 +304,8 @@ function checkAnswers() {
         }
     });
 
-    resultDiv.textContent = `You scored ${score} out of ${correctAnswers.length}`;
+    const finalScore = (score / correctAnswers.length) * totalQuestions;
+    resultDiv.textContent = `You scored ${finalScore.toFixed(1)} out of ${totalQuestions}`;
 }
 </script>
 </body>
