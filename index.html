@@ -87,23 +87,8 @@
     body.dark-mode .result {
       color: #81ecec;
     }
-    .answers {
-      margin-top: 20px;
-      padding: 20px;
-      background: #eef2f3;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: background 0.3s, color 0.3s;
-    }
-    body.dark-mode .answers {
-      background: #2d3436;
-      color: #dfe6e9;
-    }
-    .correct-answer {
-      color: green;
-      font-weight: bold;
-    }
     .incorrect-answer {
+      margin-top: 10px;
       color: red;
       font-weight: bold;
     }
@@ -112,289 +97,376 @@
 <body>
   <div class="container">
     <h1>E-Marketing Quiz</h1>
-    <!-- Dark Mode Toggle -->
-    <button id="toggleDarkMode" style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer;">
+    
+    <!-- زر تفعيل الوضع الليلي -->
+    <button id="toggleDarkMode"
+            style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #3498db; color: white; border-radius: 5px; cursor: pointer;">
       Toggle Dark Mode
     </button>
     
+    <!-- زر الرسالة الترحيبية (Opening) -->
+    <button type="button"
+            style="margin-bottom: 20px; padding: 10px 20px; border: none; background-color: #27ae60; color: white; border-radius: 5px; cursor: pointer;"
+            onclick="opening()">
+      Opening
+    </button>
+
     <form id="quizForm">
-      <!-- Questions 1-25 (كما في شيفرتك السابقة) -->
-      <div class="question">
+      <!-- الأسئلة كاملة من 1 إلى 40 (أضفنا معرف id="questionX" لكل منها) -->
+      
+      <!-- Q1 -->
+      <div class="question" id="question1">
           <h3>Question 1: What is the first step in developing an e-marketing plan?</h3>
           <label><input type="radio" name="q1" value="0"> Setting objectives</label>
           <label><input type="radio" name="q1" value="1"> Budget estimation</label>
           <label><input type="radio" name="q1" value="2"> Situation analysis</label>
           <label><input type="radio" name="q1" value="3"> Implementation plan</label>
       </div>
-      <div class="question">
+      
+      <!-- Q2 -->
+      <div class="question" id="question2">
           <h3>Question 2: What does the "S" in SWOT analysis stand for?</h3>
           <label><input type="radio" name="q2" value="0"> Strategy</label>
           <label><input type="radio" name="q2" value="1"> Strengths</label>
           <label><input type="radio" name="q2" value="2"> Segmentation</label>
           <label><input type="radio" name="q2" value="3"> Sustainability</label>
       </div>
-      <div class="question">
+      
+      <!-- Q3 -->
+      <div class="question" id="question3">
           <h3>Question 3: What is the primary goal of SEO?</h3>
           <label><input type="radio" name="q3" value="0"> Improve organic visibility</label>
           <label><input type="radio" name="q3" value="1"> Increase paid ads revenue</label>
           <label><input type="radio" name="q3" value="2"> Enhance offline customer experience</label>
           <label><input type="radio" name="q3" value="3"> Reduce website loading time</label>
       </div>
-      <div class="question">
+      
+      <!-- Q4 -->
+      <div class="question" id="question4">
           <h3>Question 4: Which of these is NOT a type of digital ad?</h3>
           <label><input type="radio" name="q4" value="0"> Retargeting ads</label>
           <label><input type="radio" name="q4" value="1"> Contextual ads</label>
           <label><input type="radio" name="q4" value="2"> Radio ads</label>
           <label><input type="radio" name="q4" value="3"> Display ads</label>
       </div>
-      <div class="question">
+      
+      <!-- Q5 -->
+      <div class="question" id="question5">
           <h3>Question 5: What is the purpose of a Napkin Plan?</h3>
           <label><input type="radio" name="q5" value="0"> Provide detailed strategies</label>
           <label><input type="radio" name="q5" value="1"> Quickly outline main ideas</label>
           <label><input type="radio" name="q5" value="2"> Convince investors</label>
           <label><input type="radio" name="q5" value="3"> Launch a product</label>
       </div>
-      <div class="question">
+      
+      <!-- Q6 -->
+      <div class="question" id="question6">
           <h3>Question 6: Which stage of the funnel model involves turning a customer into a repeat buyer?</h3>
           <label><input type="radio" name="q6" value="0"> Awareness</label>
           <label><input type="radio" name="q6" value="1"> Retention</label>
           <label><input type="radio" name="q6" value="2"> Conversion</label>
           <label><input type="radio" name="q6" value="3"> Exposure</label>
       </div>
-      <div class="question">
+      
+      <!-- Q7 -->
+      <div class="question" id="question7">
           <h3>Question 7: What type of media involves customer word-of-mouth?</h3>
           <label><input type="radio" name="q7" value="0"> Paid media</label>
           <label><input type="radio" name="q7" value="1"> Owned media</label>
           <label><input type="radio" name="q7" value="2"> Earned media</label>
           <label><input type="radio" name="q7" value="3"> Display media</label>
       </div>
-      <div class="question">
+      
+      <!-- Q8 -->
+      <div class="question" id="question8">
           <h3>Question 8: What is a benefit of using email marketing?</h3>
           <label><input type="radio" name="q8" value="0"> It’s always free</label>
           <label><input type="radio" name="q8" value="1"> Faster and more cost-effective than traditional methods</label>
           <label><input type="radio" name="q8" value="2"> Replaces social media campaigns</label>
           <label><input type="radio" name="q8" value="3"> Requires no customer segmentation</label>
       </div>
-      <div class="question">
+      
+      <!-- Q9 -->
+      <div class="question" id="question9">
           <h3>Question 9: What is the purpose of A/B testing?</h3>
           <label><input type="radio" name="q9" value="0"> Reduce email costs</label>
           <label><input type="radio" name="q9" value="1"> Test different versions to improve performance</label>
           <label><input type="radio" name="q9" value="2"> Train customer service staff</label>
           <label><input type="radio" name="q9" value="3"> Automate campaigns</label>
       </div>
-      <div class="question">
+      
+      <!-- Q10 -->
+      <div class="question" id="question10">
           <h3>Question 10: Which of the following is an example of a high-involvement product?</h3>
           <label><input type="radio" name="q10" value="0"> A can of soda</label>
           <label><input type="radio" name="q10" value="1"> A smartphone</label>
           <label><input type="radio" name="q10" value="2"> A pack of gum</label>
           <label><input type="radio" name="q10" value="3"> A pen</label>
       </div>
-      <div class="question">
+      
+      <!-- Q11 -->
+      <div class="question" id="question11">
           <h3>Question 11: What is the purpose of a welcome email?</h3>
           <label><input type="radio" name="q11" value="0"> Announce a new product</label>
           <label><input type="radio" name="q11" value="1"> Introduce new customers to the service</label>
           <label><input type="radio" name="q11" value="2"> Promote discounts</label>
           <label><input type="radio" name="q11" value="3"> Conduct a survey</label>
       </div>
-      <div class="question">
+      
+      <!-- Q12 -->
+      <div class="question" id="question12">
           <h3>Question 12: Which of these is NOT a goal of email marketing?</h3>
           <label><input type="radio" name="q12" value="0"> Enhance loyalty</label>
           <label><input type="radio" name="q12" value="1"> Build brand image</label>
           <label><input type="radio" name="q12" value="2"> Increase bounce rate</label>
           <label><input type="radio" name="q12" value="3"> Generate leads</label>
       </div>
-      <div class="question">
+      
+      <!-- Q13 -->
+      <div class="question" id="question13">
           <h3>Question 13: Which of the following best describes "earned media"?</h3>
           <label><input type="radio" name="q13" value="0"> Paid advertisements on websites</label>
           <label><input type="radio" name="q13" value="1"> Social media posts by the company</label>
           <label><input type="radio" name="q13" value="2"> Customer reviews and shares</label>
           <label><input type="radio" name="q13" value="3"> Sponsored content</label>
       </div>
-      <div class="question">
+      
+      <!-- Q14 -->
+      <div class="question" id="question14">
           <h3>Question 14: What is the main advantage of segmentation in email marketing?</h3>
           <label><input type="radio" name="q14" value="0"> Avoid creating email lists</label>
           <label><input type="radio" name="q14" value="1"> Target specific groups effectively</label>
           <label><input type="radio" name="q14" value="2"> Increase email costs</label>
           <label><input type="radio" name="q14" value="3"> Eliminate A/B testing</label>
       </div>
-      <div class="question">
+      
+      <!-- Q15 -->
+      <div class="question" id="question15">
           <h3>Question 15: What does "CTR" stand for in email marketing?</h3>
           <label><input type="radio" name="q15" value="0"> Conversion Time Rate</label>
           <label><input type="radio" name="q15" value="1"> Click-Through Rate</label>
           <label><input type="radio" name="q15" value="2"> Content Tracking Results</label>
           <label><input type="radio" name="q15" value="3"> Customer Transaction Ratio</label>
       </div>
-      <div class="question">
+      
+      <!-- Q16 -->
+      <div class="question" id="question16">
           <h3>Question 16: What is the ideal outcome at the top of the funnel?</h3>
           <label><input type="radio" name="q16" value="0"> Customer purchase</label>
           <label><input type="radio" name="q16" value="1"> Awareness</label>
           <label><input type="radio" name="q16" value="2"> Evangelism</label>
           <label><input type="radio" name="q16" value="3"> Retention</label>
       </div>
-      <div class="question">
+      
+      <!-- Q17 -->
+      <div class="question" id="question17">
           <h3>Question 17: What does "SEO" stand for?</h3>
           <label><input type="radio" name="q17" value="0"> Social Engagement Optimization</label>
           <label><input type="radio" name="q17" value="1"> Search Engine Optimization</label>
           <label><input type="radio" name="q17" value="2"> Service Experience Organization</label>
           <label><input type="radio" name="q17" value="3"> Strategic Engagement Online</label>
       </div>
-      <div class="question">
+      
+      <!-- Q18 -->
+      <div class="question" id="question18">
           <h3>Question 18: Which tool helps monitor a brand's online reputation?</h3>
           <label><input type="radio" name="q18" value="0"> Google Analytics</label>
           <label><input type="radio" name="q18" value="1"> Giga Alert</label>
           <label><input type="radio" name="q18" value="2"> AdSense</label>
           <label><input type="radio" name="q18" value="3"> Canva</label>
       </div>
-      <div class="question">
+      
+      <!-- Q19 -->
+      <div class="question" id="question19">
           <h3>Question 19: What is the purpose of a transactional email?</h3>
           <label><input type="radio" name="q19" value="0"> Promote a new product</label>
           <label><input type="radio" name="q19" value="1"> Confirm an action like a purchase</label>
           <label><input type="radio" name="q19" value="2"> Conduct surveys</label>
           <label><input type="radio" name="q19" value="3"> Increase CTR</label>
       </div>
-      <div class="question">
+      
+      <!-- Q20 -->
+      <div class="question" id="question20">
           <h3>Question 20: Which type of ad targets users who have previously visited a website?</h3>
           <label><input type="radio" name="q20" value="0"> Contextual ad</label>
           <label><input type="radio" name="q20" value="1"> Retargeting ad</label>
           <label><input type="radio" name="q20" value="2"> Sponsorship ad</label>
           <label><input type="radio" name="q20" value="3"> Mobile ad</label>
       </div>
-      <div class="question">
+      
+      <!-- Q21 -->
+      <div class="question" id="question21">
           <h3>Question 21: What is an example of "functionality" in customer experience?</h3>
           <label><input type="radio" name="q21" value="0"> Building customer trust</label>
           <label><input type="radio" name="q21" value="1"> Personalizing offers</label>
           <label><input type="radio" name="q21" value="2"> Easy-to-use website design</label>
           <label><input type="radio" name="q21" value="3"> Offering rewards to evangelists</label>
       </div>
-      <div class="question">
+      
+      <!-- Q22 -->
+      <div class="question" id="question22">
           <h3>Question 22: What is an advantage of using QR codes in marketing?</h3>
           <label><input type="radio" name="q22" value="0"> Requires no internet</label>
           <label><input type="radio" name="q22" value="1"> Simplifies the customer journey</label>
           <label><input type="radio" name="q22" value="2"> Works only with smartphones</label>
           <label><input type="radio" name="q22" value="3"> Eliminates the need for SEO</label>
       </div>
-      <div class="question">
+      
+      <!-- Q23 -->
+      <div class="question" id="question23">
           <h3>Question 23: Which factor is NOT included in a PESTEL analysis?</h3>
           <label><input type="radio" name="q23" value="0"> Political</label>
           <label><input type="radio" name="q23" value="1"> Economic</label>
           <label><input type="radio" name="q23" value="2"> Social</label>
           <label><input type="radio" name="q23" value="3"> Emotional</label>
       </div>
-      <div class="question">
+      
+      <!-- Q24 -->
+      <div class="question" id="question24">
           <h3>Question 24: What is the purpose of a "thank you" email?</h3>
           <label><input type="radio" name="q24" value="0"> Confirm a transaction</label>
           <label><input type="radio" name="q24" value="1"> Build loyalty by showing appreciation</label>
           <label><input type="radio" name="q24" value="2"> Promote a discount</label>
           <label><input type="radio" name="q24" value="3"> Announce new features</label>
       </div>
-      <div class="question">
+      
+      <!-- Q25 -->
+      <div class="question" id="question25">
           <h3>Question 25: Which of the following defines a "buyer persona"?</h3>
           <label><input type="radio" name="q25" value="0"> A fictional representation of a customer</label>
           <label><input type="radio" name="q25" value="1"> A marketing budget plan</label>
           <label><input type="radio" name="q25" value="2"> A competitor analysis tool</label>
           <label><input type="radio" name="q25" value="3"> A list of product features</label>
       </div>
-
-      <!-- الأسئلة الجديدة من 26 إلى 40 -->
-      <div class="question">
+      
+      <!-- Q26 -->
+      <div class="question" id="question26">
           <h3>Question 26: What does "conversion rate" measure?</h3>
           <label><input type="radio" name="q26" value="0"> Percentage of emails opened</label>
           <label><input type="radio" name="q26" value="1"> Percentage of customers who make a purchase</label>
           <label><input type="radio" name="q26" value="2"> Percentage of ads clicked</label>
           <label><input type="radio" name="q26" value="3"> Percentage of bounce rates</label>
       </div>
-      <div class="question">
+      
+      <!-- Q27 -->
+      <div class="question" id="question27">
           <h3>Question 27: Which type of content works best for mobile-first email design?</h3>
           <label><input type="radio" name="q27" value="0"> Heavy graphics</label>
           <label><input type="radio" name="q27" value="1"> Short and clear text</label>
           <label><input type="radio" name="q27" value="2"> Long paragraphs</label>
           <label><input type="radio" name="q27" value="3"> Desktop-only content</label>
       </div>
-      <div class="question">
+      
+      <!-- Q28 -->
+      <div class="question" id="question28">
           <h3>Question 28: What is the main objective of retargeting ads?</h3>
           <label><input type="radio" name="q28" value="0"> Attract new visitors</label>
           <label><input type="radio" name="q28" value="1"> Engage previous website visitors</label>
           <label><input type="radio" name="q28" value="2"> Promote a new product</label>
           <label><input type="radio" name="q28" value="3"> Improve website SEO</label>
       </div>
-      <div class="question">
+      
+      <!-- Q29 -->
+      <div class="question" id="question29">
           <h3>Question 29: Which of these is part of "intimacy" in customer experience?</h3>
           <label><input type="radio" name="q29" value="0"> Consistent performance over time</label>
           <label><input type="radio" name="q29" value="1"> Simple website design</label>
           <label><input type="radio" name="q29" value="2"> Rewarding loyal customers</label>
           <label><input type="radio" name="q29" value="3"> Generating awareness</label>
       </div>
-      <div class="question">
+      
+      <!-- Q30 -->
+      <div class="question" id="question30">
           <h3>Question 30: What does "bounce rate" measure?</h3>
           <label><input type="radio" name="q30" value="0"> Emails opened but not clicked</label>
           <label><input type="radio" name="q30" value="1"> Emails not delivered</label>
           <label><input type="radio" name="q30" value="2"> Successful conversions</label>
           <label><input type="radio" name="q30" value="3"> Website visitors returning</label>
       </div>
-      <div class="question">
+      
+      <!-- Q31 -->
+      <div class="question" id="question31">
           <h3>Question 31: What type of email is used to promote limited-time offers?</h3>
           <label><input type="radio" name="q31" value="0"> Informational email</label>
           <label><input type="radio" name="q31" value="1"> Limited-offer email</label>
           <label><input type="radio" name="q31" value="2"> Welcome email</label>
           <label><input type="radio" name="q31" value="3"> Transactional email</label>
       </div>
-      <div class="question">
+      
+      <!-- Q32 -->
+      <div class="question" id="question32">
           <h3>Question 32: What should a well-designed email campaign avoid?</h3>
           <label><input type="radio" name="q32" value="0"> Personalized content</label>
           <label><input type="radio" name="q32" value="1"> Clear call-to-action</label>
           <label><input type="radio" name="q32" value="2"> High unsubscribe rates</label>
           <label><input type="radio" name="q32" value="3"> Mobile responsiveness</label>
       </div>
-      <div class="question">
+      
+      <!-- Q33 -->
+      <div class="question" id="question33">
           <h3>Question 33: What is a "digital footprint"?</h3>
           <label><input type="radio" name="q33" value="0"> The number of social media posts</label>
           <label><input type="radio" name="q33" value="1"> A company's online presence across platforms</label>
           <label><input type="radio" name="q33" value="2"> The total number of emails sent</label>
           <label><input type="radio" name="q33" value="3"> A tracking tool for SEO</label>
       </div>
-      <div class="question">
+      
+      <!-- Q34 -->
+      <div class="question" id="question34">
           <h3>Question 34: Which factor contributes to customer "evangelism"?</h3>
           <label><input type="radio" name="q34" value="0"> Gaining awareness</label>
           <label><input type="radio" name="q34" value="1"> Building trust</label>
           <label><input type="radio" name="q34" value="2"> Offering rewards for loyalty</label>
           <label><input type="radio" name="q34" value="3"> Easy functionality</label>
       </div>
-      <div class="question">
+      
+      <!-- Q35 -->
+      <div class="question" id="question35">
           <h3>Question 35: What is an "unsubscribe option" in email marketing?</h3>
           <label><input type="radio" name="q35" value="0"> A link for users to opt-out of receiving emails</label>
           <label><input type="radio" name="q35" value="1"> A tool for tracking email performance</label>
           <label><input type="radio" name="q35" value="2"> A method for increasing CTR</label>
           <label><input type="radio" name="q35" value="3"> An alternative to segmentation</label>
       </div>
-      <div class="question">
+      
+      <!-- Q36 -->
+      <div class="question" id="question36">
           <h3>Question 36: Which of these improves email click-through rates?</h3>
           <label><input type="radio" name="q36" value="0"> Sending bulk emails</label>
           <label><input type="radio" name="q36" value="1"> Personalizing content</label>
           <label><input type="radio" name="q36" value="2"> Avoiding A/B testing</label>
           <label><input type="radio" name="q36" value="3"> Increasing font sizes</label>
       </div>
-      <div class="question">
+      
+      <!-- Q37 -->
+      <div class="question" id="question37">
           <h3>Question 37: What is a common feature of mobile-first email design?</h3>
           <label><input type="radio" name="q37" value="0"> Large file sizes</label>
           <label><input type="radio" name="q37" value="1"> Easy navigation</label>
           <label><input type="radio" name="q37" value="2"> Long paragraphs</label>
           <label><input type="radio" name="q37" value="3"> Lack of images</label>
       </div>
-      <div class="question">
+      
+      <!-- Q38 -->
+      <div class="question" id="question38">
           <h3>Question 38: Which strategy helps reduce unsubscribe rates?</h3>
           <label><input type="radio" name="q38" value="0"> Sending frequent emails</label>
           <label><input type="radio" name="q38" value="1"> Offering irrelevant content</label>
           <label><input type="radio" name="q38" value="2"> Providing valuable promotions</label>
           <label><input type="radio" name="q38" value="3"> Ignoring segmentation</label>
       </div>
-      <div class="question">
+      
+      <!-- Q39 -->
+      <div class="question" id="question39">
           <h3>Question 39: What is the role of "analytics" in email marketing?</h3>
           <label><input type="radio" name="q39" value="0"> Tracking performance and making data-driven decisions</label>
           <label><input type="radio" name="q39" value="1"> Designing email templates</label>
           <label><input type="radio" name="q39" value="2"> Writing subject lines</label>
           <label><input type="radio" name="q39" value="3"> Testing website SEO</label>
       </div>
-      <div class="question">
+      
+      <!-- Q40 -->
+      <div class="question" id="question40">
           <h3>Question 40: What does "AIDA" stand for in marketing?</h3>
           <label><input type="radio" name="q40" value="0"> Awareness, Interest, Desire, Action</label>
           <label><input type="radio" name="q40" value="1"> Analyze, Identify, Develop, Assess</label>
@@ -402,150 +474,131 @@
           <label><input type="radio" name="q40" value="3"> Attention, Interest, Decision, Awareness</label>
       </div>
 
-      <!-- Submit Button -->
+      <!-- زر الإرسال -->
       <div style="text-align: center; margin-top: 20px;">
         <button type="button" class="submit-btn" onclick="checkAnswers()">Submit</button>
       </div>
     </form> 
 
-    <!-- Results and Answers Display -->
+    <!-- عرض النتيجة النهائية -->
     <div class="result" id="result"></div>
-    <div class="answers" id="answers"></div>
   </div>
 
   <script>
-    // Dark Mode Toggle
+    // تفعيل الوضع الليلي
     document.getElementById("toggleDarkMode").addEventListener("click", function() {
       document.body.classList.toggle("dark-mode");
     });
 
+    // دالة الرسالة الترحيبية (Opening)
+    function opening() {
+      alert("مرحبًا بكم في اختبار E-Marketing! الرجاء الإجابة على جميع الأسئلة قبل الضغط على Submit.");
+    }
+
+    // مصفوفة الإجابات الصحيحة: 40 عنصر (0-based)
+    // تأكد من مطابقتها لأسئلتك الفعلية
+    const correctAnswers = [
+      // Q1 - Q25
+      2, 1, 0, 2, 1, 1, 2, 1, 1, 1,
+      1, 2, 2, 1, 1, 1, 1, 1, 1, 1,
+      2, 1, 3, 1, 0,
+      // Q26 - Q40
+      1, 1, 1, 2, 1, 1, 2, 1, 2, 0,
+      1, 1, 2, 0, 0
+    ];
+
+    // نصوص الخيارات (answerKeys) لكل سؤال بالترتيب، لعرض الجواب الصحيح إن وجد خطأ
+    // يجب أن يكون طولها 40 صفًا، كل صف 4 عناصر
+    const answerKeys = [
+      // Q1 - Q25
+      ["Setting objectives","Budget estimation","Situation analysis","Implementation plan"],
+      ["Strategy","Strengths","Segmentation","Sustainability"],
+      ["Improve organic visibility","Increase paid ads revenue","Enhance offline customer experience","Reduce website loading time"],
+      ["Retargeting ads","Contextual ads","Radio ads","Display ads"],
+      ["Provide detailed strategies","Quickly outline main ideas","Convince investors","Launch a product"],
+      ["Awareness","Retention","Conversion","Exposure"],
+      ["Paid media","Owned media","Earned media","Display media"],
+      ["It’s always free","Faster and more cost-effective than traditional methods","Replaces social media campaigns","Requires no customer segmentation"],
+      ["Reduce email costs","Test different versions to improve performance","Train customer service staff","Automate campaigns"],
+      ["A can of soda","A smartphone","A pack of gum","A pen"],
+      ["Announce a new product","Introduce new customers to the service","Promote discounts","Conduct a survey"],
+      ["Enhance loyalty","Build brand image","Increase bounce rate","Generate leads"],
+      ["Paid advertisements on websites","Social media posts by the company","Customer reviews and shares","Sponsored content"],
+      ["Avoid creating email lists","Target specific groups effectively","Increase email costs","Eliminate A/B testing"],
+      ["Conversion Time Rate","Click-Through Rate","Content Tracking Results","Customer Transaction Ratio"],
+      ["Customer purchase","Awareness","Evangelism","Retention"],
+      ["Social Engagement Optimization","Search Engine Optimization","Service Experience Organization","Strategic Engagement Online"],
+      ["Google Analytics","Giga Alert","AdSense","Canva"],
+      ["Promote a new product","Confirm an action like a purchase","Conduct surveys","Increase CTR"],
+      ["Contextual ad","Retargeting ad","Sponsorship ad","Mobile ad"],
+      ["Building customer trust","Personalizing offers","Easy-to-use website design","Offering rewards to evangelists"],
+      ["Requires no internet","Simplifies the customer journey","Works only with smartphones","Eliminates the need for SEO"],
+      ["Political","Economic","Social","Emotional"],
+      ["Confirm a transaction","Build loyalty by showing appreciation","Promote a discount","Announce new features"],
+      ["A fictional representation of a customer","A marketing budget plan","A competitor analysis tool","A list of product features"],
+
+      // Q26 - Q40
+      ["Percentage of emails opened","Percentage of customers who make a purchase","Percentage of ads clicked","Percentage of bounce rates"],
+      ["Heavy graphics","Short and clear text","Long paragraphs","Desktop-only content"],
+      ["Attract new visitors","Engage previous website visitors","Promote a new product","Improve website SEO"],
+      ["Consistent performance over time","Simple website design","Rewarding loyal customers","Generating awareness"],
+      ["Emails opened but not clicked","Emails not delivered","Successful conversions","Website visitors returning"],
+      ["Informational email","Limited-offer email","Welcome email","Transactional email"],
+      ["Personalized content","Clear call-to-action","High unsubscribe rates","Mobile responsiveness"],
+      ["The number of social media posts","A company's online presence across platforms","The total number of emails sent","A tracking tool for SEO"],
+      ["Gaining awareness","Building trust","Offering rewards for loyalty","Easy functionality"],
+      ["A link for users to opt-out of receiving emails","A tool for tracking email performance","A method for increasing CTR","An alternative to segmentation"],
+      ["Sending bulk emails","Personalizing content","Avoiding A/B testing","Increasing font sizes"],
+      ["Large file sizes","Easy navigation","Long paragraphs","Lack of images"],
+      ["Sending frequent emails","Offering irrelevant content","Providing valuable promotions","Ignoring segmentation"],
+      ["Tracking performance and making data-driven decisions","Designing email templates","Writing subject lines","Testing website SEO"],
+      ["Awareness, Interest, Desire, Action","Analyze, Identify, Develop, Assess","Attract, Innovate, Deliver, Achieve","Attention, Interest, Decision, Awareness"]
+    ];
+
+    // تفعيل الفحص وعرض النتيجة
     function checkAnswers() {
-      // Correct answers for all 40 questions (0-based indices):
-      // (أحرص على مطابقة الأسئلة أعلاه)
-      const correctAnswers = [
-        // Q1 - Q25 (كما في الشيفرة السابقة)
-        2, // Q1
-        1, // Q2
-        0, // Q3
-        2, // Q4
-        1, // Q5
-        1, // Q6
-        2, // Q7
-        1, // Q8
-        1, // Q9
-        1, // Q10
-        1, // Q11
-        2, // Q12
-        2, // Q13
-        1, // Q14
-        1, // Q15
-        1, // Q16
-        1, // Q17
-        1, // Q18
-        1, // Q19
-        1, // Q20
-        2, // Q21
-        1, // Q22
-        3, // Q23
-        1, // Q24
-        0, // Q25
-
-        // Q26 - Q40
-        1, // Q26: Percentage of customers who make a purchase
-        1, // Q27: Short and clear text
-        1, // Q28: Engage previous website visitors
-        2, // Q29: Rewarding loyal customers
-        1, // Q30: Emails not delivered
-        1, // Q31: Limited-offer email
-        2, // Q32: High unsubscribe rates
-        1, // Q33: A company's online presence
-        2, // Q34: Offering rewards for loyalty
-        0, // Q35: A link to opt-out
-        1, // Q36: Personalizing content
-        1, // Q37: Easy navigation
-        2, // Q38: Providing valuable promotions
-        0, // Q39: Tracking performance & data decisions
-        0  // Q40: Awareness, Interest, Desire, Action
-      ];
-
-      // Answer keys for each question to show correct text if missed:
-      const answerKeys = [
-        // Q1 - Q25 (نفس ما عندك سابقًا)
-        ["Setting objectives","Budget estimation","Situation analysis","Implementation plan"],
-        ["Strategy","Strengths","Segmentation","Sustainability"],
-        ["Improve organic visibility","Increase paid ads revenue","Enhance offline customer experience","Reduce website loading time"],
-        ["Retargeting ads","Contextual ads","Radio ads","Display ads"],
-        ["Provide detailed strategies","Quickly outline main ideas","Convince investors","Launch a product"],
-        ["Awareness","Retention","Conversion","Exposure"],
-        ["Paid media","Owned media","Earned media","Display media"],
-        ["It’s always free","Faster and more cost-effective than traditional methods","Replaces social media campaigns","Requires no customer segmentation"],
-        ["Reduce email costs","Test different versions to improve performance","Train customer service staff","Automate campaigns"],
-        ["A can of soda","A smartphone","A pack of gum","A pen"],
-        ["Announce a new product","Introduce new customers to the service","Promote discounts","Conduct a survey"],
-        ["Enhance loyalty","Build brand image","Increase bounce rate","Generate leads"],
-        ["Paid advertisements on websites","Social media posts by the company","Customer reviews and shares","Sponsored content"],
-        ["Avoid creating email lists","Target specific groups effectively","Increase email costs","Eliminate A/B testing"],
-        ["Conversion Time Rate","Click-Through Rate","Content Tracking Results","Customer Transaction Ratio"],
-        ["Customer purchase","Awareness","Evangelism","Retention"],
-        ["Social Engagement Optimization","Search Engine Optimization","Service Experience Organization","Strategic Engagement Online"],
-        ["Google Analytics","Giga Alert","AdSense","Canva"],
-        ["Promote a new product","Confirm an action like a purchase","Conduct surveys","Increase CTR"],
-        ["Contextual ad","Retargeting ad","Sponsorship ad","Mobile ad"],
-        ["Building customer trust","Personalizing offers","Easy-to-use website design","Offering rewards to evangelists"],
-        ["Requires no internet","Simplifies the customer journey","Works only with smartphones","Eliminates the need for SEO"],
-        ["Political","Economic","Social","Emotional"],
-        ["Confirm a transaction","Build loyalty by showing appreciation","Promote a discount","Announce new features"],
-        ["A fictional representation of a customer","A marketing budget plan","A competitor analysis tool","A list of product features"],
-
-        // Q26 - Q40
-        ["Percentage of emails opened","Percentage of customers who make a purchase","Percentage of ads clicked","Percentage of bounce rates"],
-        ["Heavy graphics","Short and clear text","Long paragraphs","Desktop-only content"],
-        ["Attract new visitors","Engage previous website visitors","Promote a new product","Improve website SEO"],
-        ["Consistent performance over time","Simple website design","Rewarding loyal customers","Generating awareness"],
-        ["Emails opened but not clicked","Emails not delivered","Successful conversions","Website visitors returning"],
-        ["Informational email","Limited-offer email","Welcome email","Transactional email"],
-        ["Personalized content","Clear call-to-action","High unsubscribe rates","Mobile responsiveness"],
-        ["The number of social media posts","A company's online presence across platforms","The total number of emails sent","A tracking tool for SEO"],
-        ["Gaining awareness","Building trust","Offering rewards for loyalty","Easy functionality"],
-        ["A link for users to opt-out of receiving emails","A tool for tracking email performance","A method for increasing CTR","An alternative to segmentation"],
-        ["Sending bulk emails","Personalizing content","Avoiding A/B testing","Increasing font sizes"],
-        ["Large file sizes","Easy navigation","Long paragraphs","Lack of images"],
-        ["Sending frequent emails","Offering irrelevant content","Providing valuable promotions","Ignoring segmentation"],
-        ["Tracking performance and making data-driven decisions","Designing email templates","Writing subject lines","Testing website SEO"],
-        ["Awareness, Interest, Desire, Action","Analyze, Identify, Develop, Assess","Attract, Innovate, Deliver, Achieve","Attention, Interest, Decision, Awareness"]
-      ];
-
-      let score = 0;
       const totalQuestions = correctAnswers.length;
       const form = document.getElementById('quizForm');
       const resultDiv = document.getElementById('result');
-      const answersDiv = document.getElementById('answers');
 
-      // Clear previous results
-      resultDiv.textContent = "";
-      answersDiv.innerHTML = "";
+      // 1) التأكد من إجابة جميع الأسئلة
+      for (let i = 1; i <= totalQuestions; i++) {
+        const chosen = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!chosen) {
+          alert("الرجاء الإجابة على جميع الأسئلة قبل الضغط على زر Submit.");
+          return; // إيقاف العملية
+        }
+      }
 
-      // Check each question
-      correctAnswers.forEach((correctIndex, questionNum) => {
-        const questionName = "q" + (questionNum + 1);
-        const userAnswer = form[questionName]?.value;
+      // 2) إزالة أي رسائل قديمة أسفل الأسئلة (إن وجدت)
+      for (let i = 1; i <= totalQuestions; i++) {
+        const qDiv = document.getElementById("question" + i);
+        const oldMsg = qDiv.querySelector(".incorrect-answer");
+        if (oldMsg) {
+          oldMsg.remove();
+        }
+      }
 
-        if (userAnswer === undefined) {
-          // No answer chosen
-          answersDiv.innerHTML += `<p class='incorrect-answer'>Question ${questionNum + 1}: No answer selected</p>`;
-        } else if (parseInt(userAnswer) === correctIndex) {
-          // Correct
+      // 3) حساب النتيجة وعرض الإجابة الصحيحة أسفل السؤال الخاطئ
+      let score = 0;
+      for (let i = 0; i < totalQuestions; i++) {
+        const questionName = "q" + (i + 1);
+        const userAnswer = form[questionName].value;
+        const questionDiv = document.getElementById("question" + (i + 1));
+
+        if (parseInt(userAnswer) === correctAnswers[i]) {
           score++;
         } else {
-          // Incorrect: show the correct answer
-          const correctOption = answerKeys[questionNum][correctIndex];
-          answersDiv.innerHTML += `<p class='incorrect-answer'>
-            Question ${questionNum + 1}: Correct answer is "<strong>${correctOption}</strong>"
-          </p>`;
+          // إضافة فقرة تحت السؤال تبين الإجابة الصحيحة
+          const correctOption = answerKeys[i][correctAnswers[i]];
+          questionDiv.insertAdjacentHTML(
+            "beforeend",
+            `<p class="incorrect-answer">Correct answer: <strong>${correctOption}</strong></p>`
+          );
         }
-      });
+      }
 
-      // Display the score
+      // 4) عرض النتيجة النهائية
       resultDiv.textContent = `You scored ${score} out of ${totalQuestions}.`;
     }
   </script>
